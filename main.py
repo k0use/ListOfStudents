@@ -1,7 +1,7 @@
 from lxml import etree
 import csv
 
-tree = etree.parse('students.xml')
+tree = etree.parse('additional-students.xml')
 root = tree.getroot()
 
 students = root.xpath("//student")
@@ -16,7 +16,7 @@ for student in students:
 for sid, name in student_list:
     print(f"Student ID: {sid}, Student Name: {name}")
 
-with open("students.csv", "w", newline="", encoding="utf-8") as f:
+with open("additional-students.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(["student_id", "student_name"])
     writer.writerows(student_list)
